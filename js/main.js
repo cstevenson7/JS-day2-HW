@@ -32,6 +32,7 @@ for(let i = 0; i < Object.keys(person3).length; i++){
     }
 }
 
+
 //=======Exercise #2=========//
 /*
 Write an object prototype for a Person that has a name and age, has a
@@ -43,14 +44,39 @@ both of their infos and increment one persons
 age by 3 years. Use an arrow function for both methods
 */
 
-// Create our Person Prototype
+// // Create our Person Prototype
+// function Person(name, age){
+//     this.name = name;
+//     this.age = age;
+//     // Use an arrow to create the printInfo method
+//     this.printInfo = () => {
+//         return `Your name is ${this.name}, and you are ${this.age} years old.`
+//     }
+//     // Create another arrow function for the addAge method that takes a single parameter
+//     // Adding to the age 
+//     this.addAge = (num) => {
+//         let addYears = num
+//         this.age = this.age + num
+//         return `${this.name} is now ${this.age}`
+//     }
+// }
+
 function Person(name, age){
     this.name = name;
-    this.age = age;
+    this.age = age;    
+
     // Use an arrow to create the printInfo method
     this.printInfo = () => {
         return `Your name is ${this.name}, and you are ${this.age} years old.`
+    
     }
+
+    //self invoking function that adds one to the age each time the method is run 
+    this.countUp = (function() {
+        let counter = 1;
+        return function() {return `Your age is now ${this.age + counter ++}`}
+    })()
+
     // Create another arrow function for the addAge method that takes a single parameter
     // Adding to the age 
     this.addAge = (num) => {
@@ -62,10 +88,13 @@ function Person(name, age){
 
 let new_person = new Person('Cindy', 60);
 console.log(new_person.printInfo())
-console.log(new_person.addAge(1))
+console.log(new_person.countUp())
+console.log(new_person.countUp())
+
 
 let new_person2 = new Person('Katie', 31);
 console.log(new_person2.printInfo())
+
 console.log(new_person2.addAge(3))
 
 
