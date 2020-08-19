@@ -18,11 +18,13 @@ let person3 = {
         cupids_candies:"Chocolate Malt"
     }]
 }
-
+function displayObj(person){
 //Displays all the favorite food dishes (keys)
-for (let i= 0; i < Object.keys(person3).length; i++){
-    console.log(Object.keys(person3)[i])
+    for (let i= 0; i < Object.keys(person3).length; i++){
+        console.log(Object.keys(person3)[i])
+    }
 }
+console.log(displayObj(person3))
 
 //Displays all the values for the favorite dishes
 for(let i = 0; i < Object.keys(person3).length; i++){
@@ -44,23 +46,25 @@ both of their infos and increment one persons
 age by 3 years. Use an arrow function for both methods
 */
 
-// // Create our Person Prototype
-// function Person(name, age){
-//     this.name = name;
-//     this.age = age;
-//     // Use an arrow to create the printInfo method
-//     this.printInfo = () => {
-//         return `Your name is ${this.name}, and you are ${this.age} years old.`
-//     }
-//     // Create another arrow function for the addAge method that takes a single parameter
-//     // Adding to the age 
-//     this.addAge = (num) => {
-//         let addYears = num
-//         this.age = this.age + num
-//         return `${this.name} is now ${this.age}`
-//     }
-// }
+//Create our Person Prototype
+function Person(name, age){
+    this.name = name;
+    this.age = age;
+    // Use an arrow to create the printInfo method
+    this.printInfo = () => {
+        return `Your name is ${this.name}, and you are ${this.age} years old.`
+    }
+    // Create another arrow function for the addAge method that takes a single parameter
+    // Adding to the age 
+    this.addAge = (num) => {
+        let addYears = num
+        this.age = this.age + num
+        return `${this.name} is now ${this.age}`
+    }
+}
 
+
+  // Trying a Using a self-invoking function
 function Person(name, age){
     this.name = name;
     this.age = age;    
@@ -94,7 +98,6 @@ console.log(new_person.countUp())
 
 let new_person2 = new Person('Katie', 31);
 console.log(new_person2.printInfo())
-
 console.log(new_person2.addAge(3))
 
 
